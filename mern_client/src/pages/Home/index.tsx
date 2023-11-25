@@ -1,16 +1,20 @@
 import { useSetAtom } from "jotai";
 import MapContainer from "../../components/MapContainer";
 import Navigation from "../../components/Navigation";
-import { infoAtom } from "../../atoms/info";
+import { infosAtom } from "../../atoms/info";
 import { infos } from "../../data/infos";
 import MarkersContainer from "../../components/MarkersContainer";
+import { useEffect } from "react";
 
 function Home() {
-  const setInfos = useSetAtom(infoAtom);
+  const setInfos = useSetAtom(infosAtom);
 
-  if (infos) {
-    setInfos(infos);
-  }
+  useEffect(() => {
+    if (infos) {
+      setInfos(infos);
+    }
+  }, [infos]);
+
   return (
     <>
       <Navigation />

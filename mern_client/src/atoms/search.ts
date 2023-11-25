@@ -1,3 +1,3 @@
 import { atom } from "jotai";
 
-export const searchAtom = atom<boolean>(false);
+export const selectAtom = atom<boolean>(false);
