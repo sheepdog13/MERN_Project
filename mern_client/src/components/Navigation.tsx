@@ -6,7 +6,11 @@ import Divider from "./common/Divider";
 import Block from "./common/Block";
 import { GoPlus } from "react-icons/go";
 
-function Navigation() {
+interface NavigationProps {
+  type?: "home" | "upload";
+}
+
+function Navigation({ type = "home" }: NavigationProps) {
   return (
     <ShadowBox>
       <Button type="link" url="/">
@@ -14,7 +18,7 @@ function Navigation() {
       </Button>
       <Divider />
       <Block height="28px" />
-      <Button>
+      <Button type="link" url="upload">
         <GoPlus size={20} />
       </Button>
     </ShadowBox>
