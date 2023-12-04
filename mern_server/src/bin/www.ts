@@ -5,7 +5,7 @@
  */
 import app from '../app';
 import debug from 'debug';
-
+import mongoose from 'mongoose';
 import http from 'http';
 
 /**
@@ -14,6 +14,15 @@ import http from 'http';
 
 const port = normalizePort('3001');
 app.set('port', port);
+
+mongoose
+  .connect(`mongodb://mern:merntest@localhost:27017/?authMechanism=DEFAULT&authSource=admin`)
+  .then(() => {
+    console.log('Connected to mongo server');
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 /**
  * Create HTTP server.
